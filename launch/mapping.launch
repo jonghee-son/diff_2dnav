@@ -4,7 +4,8 @@
   <arg name="tf_map_scanmatch_transform_frame_name" default="scanmatcher_frame"/>
   <node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map nav 100"/>
   <node pkg="tf" type="static_transform_publisher" name="map_scanmatcher_broadcaster" args="0 0 0 0 0 0 map scanmatcher_frame 25"/>
-  <node pkg="tf" type="static_transform_publisher" name="nav_baselink_broadcaster" args="0 0 0 0 0 0 nav base_link 13"/>  <node pkg="tf" type="static_transform_publisher" name="nav_basefootprint_broadcaster" args="0 0 0 0 0 0 nav base_footprint 13"/>
+  <!--<node pkg="tf" type="static_transform_publisher" name="nav_baselink_broadcaster" args="0 0 0 0 0 0 nav base_link 13"/>-->
+  <node pkg="tf" type="static_transform_publisher" name="nav_basefootprint_broadcaster" args="0 0 0 0 0 0 nav base_footprint 13"/>
   <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0.05 0 0 0 base_link laser_frame 100"/>
   <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" name="laser_scan_matcher_node" output="screen">
    <param name="fixed_frame" value = "odom"/>                                                                 
