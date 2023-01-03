@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+
+<launch>
+ <!-- Model configuration -->
+
+ <!-- Sensor configuration -->
+   <node pkg="ydlidar_ros_driver" type="ydlidar_ros_driver_node" name="ydlidar_ros_driver" output="screen">
+ 	<!-- string property -->
+    <param name="port"         type="string" value="/dev/ttyUSB0"/>
+    <param name="frame_id"     type="string" value="laser_frame"/>
+    <param name="ignore_array"     type="string" value=""/>
+
+    <!-- int property -->
+    <param name="baudrate"         type="int" value="230400"/>
+    <!-- 0:TYPE_TOF, 1:TYPE_TRIANGLE, 2:TYPE_TOF_NET -->
+    <param name="lidar_type"       type="int" value="1"/>
+    <!-- 0:YDLIDAR_TYPE_SERIAL, 1:YDLIDAR_TYPE_TCP -->
+    <param name="device_type"         type="int" value="0"/>
+    <param name="sample_rate"         type="int" value="9"/>
+    <param name="abnormal_check_count"         type="int" value="4"/>
+
+    <!-- bool property -->
+    <param name="resolution_fixed"    type="bool"   value="true"/>
+    <param name="auto_reconnect"    type="bool"   value="true"/>
+    <param name="reversion"    type="bool"   value="true"/>
+    <param name="inverted"    type="bool"   value="true"/>
+    <param name="isSingleChannel"    type="bool"   value="false"/>
+    <param name="intensity"    type="bool"   value="false"/>
+    <param name="support_motor_dtr"    type="bool"   value="false"/>
+    <param name="invalid_range_is_inf"    type="bool"   value="false"/>
+    <param name="point_cloud_preservative"    type="bool"   value="false"/>
+
+    <!-- float property -->
+    <param name="angle_min"    type="double" value="-180" />
+    <param name="angle_max"    type="double" value="180" />
+    <param name="range_min"    type="double" value="0.1" />
+    <param name="range_max"    type="double" value="16.0" />
+    <param name="frequency"    type="double" value="10.0"/>
+ </node>
+ <node name="imu_node" pkg="mpu_6050_driver" type="imu_node.py" >
+ </node>
+
+ <node name="imu_filter_node_for_orientation" pkg="imu_complementary_filter" type="complementary_filter_node" >
+ </node>
+
+ <node name="rpy_tf" pkg="mpu_6050_driver" type="tf_broadcaster_imu.py" >
+ </node>
+ <!-- AMCL -->
+ <include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>
+ <!-- Odometry configuration -->
+ 
+  <!-- SLAM configuration -->
+  <!--<arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
+
+  <param name="/use_sim_time" value="false"/>-->
+  <include file="$(find diff_2dnav)/launch/mapping.launch"/>
+
+  <!--<include file="$(find hector_geotiff_launch)/launch/geotiff_mapper.launch">
+    <arg name="trajectory_source_frame_name" value="scanmatcher_frame"/>
+    <arg name="map_file_path" value="$(arg geotiff_map_file_path)"/>
+  </include>--> 
+  <!-- TF configuration -->
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser4"
+     args="0.0 0.0 0.2 0.0 0.0 0.0 /base_footprint /laser_frame 40" />
+  <!-- move_base configuration -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <rosparam file="$(find diff_2dnav)/param/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find diff_2dnav)/param/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find diff_2dnav)/param/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find diff_2dnav)/param/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find diff_2dnav)/param/base_local_planner_params.yaml" command="load" />
+    <rosparam file="$(find diff_2dnav)/param/move_base_params.yaml" command="load" />
+  </node>
+
+</launch>
