@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>diff_2dnav</name>
-  <version>0.0.0</version>
-  <description>The diff_2dnav package</description>
+  <version>0.1.0</version>
+  <description>ROS launch and odometry publisher package for differential drive robot</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="jetson@todo.todo">jetson</maintainer>
+  <maintainer email="zzongaone@gmail.com">Jonghee Son</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
@@ -20,7 +20,7 @@
   <!-- Optional attribute type can be: website, bugtracker, or repository -->
   <!-- Example: -->
   <!-- <url type="website">http://wiki.ros.org/diff_2dnav</url> -->
-
+  <url type="GitHub">https://github.com/jonghee-son/diff_2dnav</url>
 
   <!-- Author tags are optional, multiple are allowed, one per tag -->
   <!-- Authors do not have to be maintainers, but could be -->
@@ -49,18 +49,14 @@
   <!-- Use doc_depend for packages you need only for building documentation: -->
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
-  <build_depend>move_base</build_depend>
-  <build_depend>my_odom_configuration_dep</build_depend>
-  <build_depend>my_sensor_configuration_dep</build_depend>
-  <build_depend>my_tf_configuration_dep</build_depend>
-  <build_export_depend>move_base</build_export_depend>
-  <build_export_depend>my_odom_configuration_dep</build_export_depend>
-  <build_export_depend>my_sensor_configuration_dep</build_export_depend>
-  <build_export_depend>my_tf_configuration_dep</build_export_depend>
+  <build_depend>roscpp</build_depend>
   <exec_depend>move_base</exec_depend>
-  <exec_depend>my_odom_configuration_dep</exec_depend>
-  <exec_depend>my_sensor_configuration_dep</exec_depend>
-  <exec_depend>my_tf_configuration_dep</exec_depend>
+  <exec_depend>robot_pose_ekf</exec_depend>
+  <exec_depend>amcl</exec_depend>
+  <exec_depend>gmapping</exec_depend>
+  <exec_depend>ydlidar_ros_driver</exec_depend>
+  <exec_depend>md</exec_depend>
+  <exec_depend>iahrs_driver</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
