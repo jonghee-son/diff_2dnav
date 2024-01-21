@@ -1,19 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
-  <arg name="tf_map_scanmatch_transform_frame_name" default="scanmatcher_frame"/>
-  <node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 map nav 100"/>
-  <node pkg="tf" type="static_transform_publisher" name="map_scanmatcher_broadcaster" args="0 0 0 0 0 0 map scanmatcher_frame 25"/>
+  <node pkg="tf" type="static_transform_publisher" name="base_link_broadcaster" args="0 0 0 0 0 0 base_footprint base_link 100" />
   <!--<node pkg="tf" type="static_transform_publisher" name="nav_baselink_broadcaster" args="0 0 0 0 0 0 nav base_link 13"/>-->
-  <node pkg="tf" type="static_transform_publisher" name="nav_basefootprint_broadcaster" args="0 0 0 0 0 0 nav base_footprint 13"/>
-  <node pkg="tf" type="static_transform_publisher" name="base_to_laser_broadcaster" args="0 0 0.05 0 0 0 base_link laser_frame 100"/>
-  <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" name="laser_scan_matcher_node" output="screen">
-   <param name="fixed_frame" value = "odom"/>                                                                 
-   <param name="use_odom" value="true"/>                                                                      
-   <param name="publish_odom" value = "true"/>                                                                
-   <param name="use_alpha_beta" value="true"/>                                                                
-   <param name="max_iterations" value="10"/>                                                                  
-  </node>  
   <!--<node pkg="hector_mapping" type="hector_mapping" name="hector_height_mapping" output="screen">
     <param name="scan_topic" value="scan" />
     <param name="base_frame" value="base_link" />
@@ -38,5 +27,5 @@
    <param name="map_udpate_interval" value="1.0"/>                                                            
    <param name="delta" value="0.02"/>                                                                         
   </node>
-  <node name="map_server" pkg="map_server" type="map_server" args="/home/jetson/catkin_ws/map.yaml"/>
+  <node name="map_server" pkg="map_server" type="map_server" args="/home/jhson/ros_ws/map.yaml"/>
 </launch>
