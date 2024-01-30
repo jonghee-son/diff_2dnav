@@ -40,15 +40,23 @@
     <param name="base_link_frame" value="base_footprint" />
     <param name="world_frame" value="odom" />
     <param name="odom0" value="/odom_data_quat" />
-    <param name="odom0_differential" value="true" />
+    <param name="odom0_differential" value="false" />
     <param name="odom0_pose_rejection_threshold" value="5.0"/>
     <param name="odom0_twist_rejection_threshold" value="1.0"/>
     <rosparam param="odom0_config">
       [true, true, false,
        false, false, false,
-       true, true, false,
+       false, false, false,
        false, false, false,
        false, false, false]</rosparam>
+    <!--<param name="odom1" value="/odom" />
+    <param name="odom1_differential" value="false" />
+    <rosparam param="odom1_config"/>
+      [true, true, false,
+       false, false, false,
+       false, false, false,
+       false, false, true,
+       false, false, false]-->
     <param name="imu0" value="/imu/data" />
     <param name="imu0_differential" value="false" />
     <param name="imu0_remove_gravitational_acceleration" value="true"/>
@@ -57,11 +65,25 @@
     <param name="imu0_twist_rejection_threshold" value="0.8"/>
     <rosparam param="imu0_config">
       [false, false, false,
-       false, false, true,
+       false, false, false,
        false, false, false,
        false, false, true,
        false, false, false]</rosparam>
   </node>
+  <!--<remap from="odom" to="odom_data_quat" />
+  <remap from="imu_data" to="imu/data" />
+  <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
+    <param name="output_frame" value="odom"/>
+    <param name="base_footprint_frame" value="base_footprint"/>
+    <param name="freq" value="30.0"/>
+    <param name="sensor_timeout" value="1.0"/>
+    <param name="odom_used" value="true"/>
+    <param name="imu_used" value="true"/>
+    <param name="vo_used" value="false"/>
+    <param name="gps_used" value="false"/>
+    <param name="debug" value="true"/>
+    <param name="self_diagnose" value="false"/>
+  </node>-->
 
   <!-- SLAM configuration -->
   <!--<arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
