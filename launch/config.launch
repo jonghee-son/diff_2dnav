@@ -15,7 +15,7 @@
     <param name="base_frame_id" value="/base_footprint"/>
     <param name="odom_frame_id" value="/odom" />    
     <param name="init_pose_from_topic" value="" />
-    <param name="freq" value="6.0"/>
+    <param name="freq" value="10.0"/>
     <param name="verbose" value="true" />
   </node>
 
@@ -23,7 +23,7 @@
   <include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>
 
   <!-- Odometry configuration -->
-  <node name="robot_localization_ekf_node_odom" pkg="robot_localization" type="ekf_localization_node">
+  <node name="robot_localization_ekf_node_odom" pkg="robot_localization" type="ekf_localization_node" clear_params="true">
     <param name="frequency" value="10.0" />
     <param name="sensor_timeout" value="0.2" />
     <param name="two_d_mode" value="true" />
