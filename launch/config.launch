@@ -8,11 +8,22 @@
   <param name="m_bSingle_TF_option" type="bool" value="true" /> <!--false-->
   <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen"></node>
 
+  <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
+    <param name="laser_scan_topic" value="/scan"/>
+    <param name="odom_topic" value="/odom" />   
+    <param name="publish_tf" value="true" />
+    <param name="base_frame_id" value="/base_footprint"/>
+    <param name="odom_frame_id" value="/odom" />    
+    <param name="init_pose_from_topic" value="" />
+    <param name="freq" value="6.0"/>
+    <param name="verbose" value="true" />
+  </node>
+
   <!-- AMCL -->
   <include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>
 
   <!-- Odometry configuration -->
-  <remap from="odom" to="odom_data_quat" />
+  <!-- <remap from="odom" to="odom_data_quat" /> -->
   <remap from="imu_data" to="imu/data" />
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
     <param name="output_frame" value="odom"/>
