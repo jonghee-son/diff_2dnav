@@ -11,7 +11,7 @@
   <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
     <param name="laser_scan_topic" value="/scan"/>
     <param name="odom_topic" value="/odom" />   
-    <param name="publish_tf" value="false" />
+    <param name="publish_tf" value="true" />
     <param name="base_frame_id" value="/base_footprint"/>
     <param name="odom_frame_id" value="/odom" />    
     <param name="init_pose_from_topic" value="" />
@@ -28,7 +28,7 @@
         x_vel   , y_vel    , z_vel,
         roll_vel, pitch_vel, yaw_vel,
         x_accel , y_accel  , z_accel]-->
-  <node name="robot_localization_ekf_node_odom" pkg="robot_localization" type="ekf_localization_node" clear_params="true">
+  <!--<node name="robot_localization_ekf_node_odom" pkg="robot_localization" type="ekf_localization_node" clear_params="true">
     <param name="frequency" value="60.0" />
     <param name="sensor_timeout" value="0.2" />
     <param name="two_d_mode" value="true" />
@@ -49,14 +49,14 @@
        false, false, false,
        false, false, false,
        false, false, false]</rosparam>
-    <!--<param name="odom1" value="/odom" />
+    <param name="odom1" value="/odom" />
     <param name="odom1_differential" value="false" />
     <rosparam param="odom1_config"/>
       [true, true, false,
        false, false, false,
        false, false, false,
        false, false, true,
-       false, false, false]-->
+       false, false, false]
     <param name="imu0" value="/imu/data" />
     <param name="imu0_differential" value="false" />
     <param name="imu0_remove_gravitational_acceleration" value="true"/>
@@ -69,7 +69,7 @@
        false, false, false,
        false, false, true,
        false, false, false]</rosparam>
-  </node>
+  </node>-->
   <!--<remap from="odom" to="odom_data_quat" />
   <remap from="imu_data" to="imu/data" />
   <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf">
