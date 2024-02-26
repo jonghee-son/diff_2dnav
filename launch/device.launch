@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find ydlidar_ros_driver)/launch/G2.launch"/>
+  <param name="m_bSingle_TF_option" type="bool" value="true" /> <!--false-->
+  
+  <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen"></node>
+  
+  <node pkg="md" type="md_robot_node" name="md_robot_node" output="screen">
+    <param name = "use_MDUI"                    value = "0"/>       <!-- 0: not use MDUI, 1: use MDUI -->
+    <param name = "wheel_radius"                value = "0.193"/>  <!-- unit: meter -->
+    <param name = "wheel_length"                value = "0.487"/>   <!-- unit: meter -->
+    <param name = "motor_pole"                  value = "8"/>
+    <param name = "reduction"                   value = "15"/> 
+    <param name = "reverse_direction"           value = "0"/>       <!-- 0: forward, 1: reverse -->
+    <param name = "maxrpm"                      value = "2700"/>    <!-- unit: RPM -->
+    <param name = "motor_posi"                  value = "1"/>       <!-- motor pisition 0: hall sensor, 1: encoder -->
+    <param name = "position_type"               value = "1"/>       <!-- 0: hall sensor, 1: encoder -->
+    <param name = "encoder_PPR"                 value = "16384"/>   <!-- if use encoder position, encoder PPR -->
+    <param name = "position_proportion_gain"    value = "20"/>      <!-- reference PID 203(PID_GAIN) -->
+    <param name = "speed_proportion_gain"       value = "50"/>      <!-- reference PID 203(PID_GAIN) -->
+    <param name = "integral_gain"               value = "1800"/>    <!-- reference PID 203(PID_GAIN) -->
+    <param name = "slow_start"                  value = "300"/>     <!-- unit: RPM -->
+    <param name = "slow_down"                   value = "300"/>     <!-- unit: RPM -->
+  </node>
+  <node pkg="diff_2dnav" type="ekf_odom_pub" name="ekf_odom_pub">
+  </node>
+  <node pkg="diff_2dnav" type="rviz_click_to_2d" name="rviz_click_to_2d">
+  </node>
+</launch>
+
