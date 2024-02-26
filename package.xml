@@ -54,9 +54,6 @@
   <exec_depend>robot_pose_ekf</exec_depend>
   <exec_depend>amcl</exec_depend>
   <exec_depend>gmapping</exec_depend>
-  <exec_depend>ydlidar_ros_driver</exec_depend>
-  <exec_depend>md</exec_depend>
-  <exec_depend>iahrs_driver</exec_depend>
 
 
   <!-- The export tag contains other, unspecified, tags -->
