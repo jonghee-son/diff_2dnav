@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 
 <launch>
+  <include file="$(find diff_2dnav)/launch/laser_filter.launch"/>
+
   <!-- AMCL -->
   <include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>
 
@@ -66,4 +68,5 @@
   <!-- move_base configuration -->
   <include file="$(find diff_2dnav)/launch/move_base.launch"/>
 
+  <include file="$(find diff_2dnav)/launch/navsat_transform.launch"/>
 </launch>

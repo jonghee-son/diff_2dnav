@@ -1,9 +1,11 @@
 <?xml version="1.0"?>
 
 <launch>
+  <include file="$(find diff_2dnav)/launch/laser_filter.launch"/>
+
   <!-- Attached devices configuration -->
   <node pkg="rf2o_laser_odometry" type="rf2o_laser_odometry_node" name="rf2o_laser_odometry" output="screen">
-    <param name="laser_scan_topic" value="/scan"/>
+    <param name="laser_scan_topic" value="/scan_filtered"/>
     <param name="odom_topic" value="/odom" />   
     <param name="publish_tf" value="true" />
     <param name="base_frame_id" value="/base_footprint"/>
