@@ -6,7 +6,7 @@
   <!-- Declare arguments with default values -->
   <arg name="host"                   default = "RTS2.ngii.go.kr" />
   <arg name="port"                   default = "2101" />
-  <arg name="mountpoint"             default = "VRS-RTCM32" />
+  <arg name="mountpoint"             default = "VRS-RTCM31" />
   <arg name="authenticate"           default = "true" />
   <arg name="username"               default = "paper1020" />
   <arg name="password"               default = "ngii" />
@@ -69,6 +69,6 @@
     <param name="rtcm_timeout_seconds" value="4" />
 
     <!-- Uncomment the following section and replace "/gx5/nmea/sentence" with the topic you are sending NMEA on if it is not the one we requested -->
-    <!--<remap from="/ntrip_client/nmea" to="/gx5/nmea/sentence" />-->
+    <remap from="/ntrip_client/nmea" to="/ublox_gps/nmea" />
   </node>
 </launch>
