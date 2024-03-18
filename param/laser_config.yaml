@@ -2,5 +2,5 @@ scan_filter_chain:
 - name: Antennas
   type: laser_filters/LaserScanAngularBoundsFilterInPlace
   params:
-    lower_angle: -0.52
-    upper_angle: 0.52
+    lower_angle: 2.62
+    upper_angle: 3.66
