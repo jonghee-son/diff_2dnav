@@ -19,10 +19,10 @@ const double initialTheta = 0.00000000001;
 const double PI = 3.141592;
 
 // Robot physical constants
-const double TICKS_PER_REVOLUTION = 16384 * 15; // For reference purposes.
-const double WHEEL_RADIUS = 0.193 / 2; // Wheel radius in meters
+const double TICKS_PER_REVOLUTION = 16384 * 60; // For reference purposes.
+const double WHEEL_RADIUS = 0.193; // Wheel radius in meters
 const double WHEEL_BASE = 0.487; // Center of left tire to center of right tire
-const double TICKS_PER_METER = TICKS_PER_REVOLUTION / (2 * PI * WHEEL_RADIUS); // Original was 2800
+const double TICKS_PER_METER = TICKS_PER_REVOLUTION / (PI * WHEEL_RADIUS); // Original was 2800
 
 // Distance both wheels have traveled
 double distanceLeft = 0;
@@ -46,13 +46,6 @@ void Calc_Left(const std_msgs::Int32& leftCount) {
 	static int lastCountL = 0;
 	if(leftCount.data != 0 && lastCountL != 0) {
 		int leftTicks = (leftCount.data - lastCountL);
-		if (leftTicks > 10000) {
-			leftTicks = 0 - (65535 - leftTicks);
-		}
-		else if (leftTicks < -10000) {
-			leftTicks = 65535-leftTicks;
-		}
-		else{}
 		distanceLeft = leftTicks/TICKS_PER_METER;
 	}
 	lastCountL = leftCount.data;
@@ -63,13 +56,6 @@ void Calc_Right(const std_msgs::Int32& rightCount) {
 	static int lastCountR = 0;
 	if(rightCount.data != 0 && lastCountR != 0) {
 		int rightTicks = rightCount.data - lastCountR;
-		if (rightTicks > 10000) {
-			distanceRight = (0 - (65535 - distanceRight))/TICKS_PER_METER;
-		}
-		else if (rightTicks < -10000) {
-			rightTicks = 65535 - rightTicks;
-		}
-		else{}
 		distanceRight = rightTicks/TICKS_PER_METER;
 	}
 	lastCountR = rightCount.data;
