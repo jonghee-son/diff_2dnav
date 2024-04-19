@@ -8,7 +8,8 @@
 
   <include file="$(find diff_2dnav)/launch/ublox_zed-f9p.launch"/>
   <include file="$(find diff_2dnav)/launch/ntrip_client.launch"/>
-  
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_gps_broadcaster" args="-0.30 0 0.30 0 0 0 base_link gps 100" />
+
   <node pkg="iahrs_driver" type="iahrs_driver" name="iahrs_driver" output="screen"></node>
   
   <node pkg="md" type="md_robot_node" name="md_robot_node" output="screen">
