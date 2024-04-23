@@ -29,7 +29,7 @@ double distanceLeft = 0;
 double distanceRight = 0;
 
 // Flag to see if initial pose has been received
-bool initialPoseRecieved = false;
+bool initialPoseRecieved = true;
 
 using namespace std;
 
