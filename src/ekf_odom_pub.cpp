@@ -55,7 +55,7 @@ void Calc_Left(const std_msgs::Int32& leftCount) {
 void Calc_Right(const std_msgs::Int32& rightCount) {
 	static int lastCountR = 0;
 	if(rightCount.data != 0 && lastCountR != 0) {
-		int rightTicks = rightCount.data - lastCountR;
+		int rightTicks = (rightCount.data - lastCountR);
 		distanceRight = rightTicks/TICKS_PER_METER;
 	}
 	lastCountR = rightCount.data;
