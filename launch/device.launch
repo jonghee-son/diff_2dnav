@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 
 <launch>
+  <param name="robot_description" textfile="$(find diff_2dnav)/description/robot.urdf"/>
   <!--<include file="$(find ydlidar_ros_driver)/launch/G2.launch"/>-->
   <include file="$(find diff_2dnav)/launch/rplidar_s2.launch"/>
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser_broadcaster" args="0 0 0.30 3.14 0 3.14 base_link laser 100" />
@@ -33,5 +34,6 @@
   </node>
   <node pkg="diff_2dnav" type="rviz_click_to_2d" name="rviz_click_to_2d">
   </node>
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" />
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
 </launch>
-
