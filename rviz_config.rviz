@@ -64,15 +64,21 @@ Visualization Manager:
           Value: true
         base_link:
           Value: true
+        caster:
+          Value: true
         gps:
           Value: true
         imu_link:
           Value: true
         laser:
           Value: true
+        left_wheel:
+          Value: true
         map:
           Value: true
         odom:
+          Value: true
+        right_wheel:
           Value: true
       Marker Alpha: 1
       Marker Scale: 1
@@ -85,11 +91,17 @@ Visualization Manager:
           odom:
             base_footprint:
               base_link:
+                caster:
+                  {}
                 gps:
                   {}
                 imu_link:
                   {}
                 laser:
+                  {}
+                left_wheel:
+                  {}
+                right_wheel:
                   {}
       Update Interval: 0
       Value: true
@@ -222,6 +234,61 @@ Visualization Manager:
       Unreliable: false
       Use Timestamp: false
       Value: true
+    - Alpha: 1
+      Class: rviz/RobotModel
+      Collision Enabled: false
+      Enabled: true
+      Links:
+        All Links Enabled: true
+        Expand Joint Details: false
+        Expand Link Details: false
+        Expand Tree: false
+        Link Tree Style: Links in Alphabetic Order
+        base_footprint:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        caster:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        gps:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        laser:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+      Name: RobotModel
+      Robot Description: robot_description
+      TF Prefix: ""
+      Update Interval: 0
+      Value: true
+      Visual Enabled: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -250,7 +317,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 13.33855152130127
+      Distance: 11.129396438598633
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -266,9 +333,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6647964715957642
+      Pitch: 0.6147969365119934
       Target Frame: <Fixed Frame>
-      Yaw: 3.0935769081115723
+      Yaw: 2.663576364517212
     Saved: ~
 Window Geometry:
   Displays:
@@ -288,5 +355,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 17
-  Y: 17
+  X: 225
+  Y: 5
