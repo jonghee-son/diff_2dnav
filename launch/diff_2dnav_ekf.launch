@@ -58,7 +58,7 @@
        true, true, true,
        true, true, true]</rosparam>-->
   </node>
-  <node name="robot_localization_ekf_node_map" pkg="robot_localization" type="ekf_localization_node" clear_params="true">
+  <!--<node name="robot_localization_ekf_node_map" pkg="robot_localization" type="ekf_localization_node" clear_params="true">
     <param name="frequency" value="100.0" />
     <param name="sensor_timeout" value="0.2" />
     <param name="two_d_mode" value="true" />
@@ -103,7 +103,7 @@
        false, false, false,
        true, true, true,
        true, true, true]</rosparam>
-  </node>
+  </node>-->
 
   <!-- SLAM configuration -->
   <!--<arg name="geotiff_map_file_path" default="$(find hector_geotiff)/maps"/>
