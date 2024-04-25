@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<robot name="robot">
+        <link name="base_link">
+                <visual>
+                        <origin rpy="0 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <box size="0.65 0.42 0.51"/>
+                        </geometry>
+                        <material name="blue">
+                                <color rgba="0.0 0.0 1.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <origin rpy="0 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <box size="0.65 0.42 0.51"/>
+                        </geometry>
+                </collision>
+        </link>
+        <link name="base_footprint"/>
+        <link name="left_wheel">
+                <visual>
+                        <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <cylinder radius="0.0965" length="0.05"/>
+                        </geometry>
+                        <material name="red">
+                                <color rgba="1.0 0.0 0.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <cylinder radius="0.0965" length="0.05"/>
+                        </geometry>
+                </collision>
+        </link>
+        <link name="right_wheel">
+                <visual>
+                        <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <cylinder radius="0.0965" length="0.05"/>
+                        </geometry>
+                        <material name="red">
+                                <color rgba="1.0 0.0 0.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <cylinder radius="0.0965" length="0.05"/>
+                        </geometry>
+                </collision>
+        </link>
+        <link name="caster">
+                <visual>
+                        <origin rpy="1.57075 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <sphere radius="0.0505"/>
+                        </geometry>
+                        <material name="red">
+                                <color rgba="1.0 0.0 0.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <origin rpy="0 0 0" xyz="0 0 0"/>
+                        <geometry>
+                                <cylinder radius="0.0505" length="0.05"/>
+                        </geometry>
+                </collision>
+        </link>
+        <link name="laser">
+                <visual>
+                        <geometry>
+                                <cylinder radius="0.035" length="0.04"/>
+                        </geometry>
+                        <material name="green">
+                                <color rgba="0.0 1.0 0.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <geometry>
+                                <cylinder radius="0.035" length="0.04"/>
+                        </geometry>
+                </collision>
+        </link>
+        <link name="gps">
+                <visual>
+                        <geometry>
+                                <cylinder radius="0.08" length="0.09"/>
+                        </geometry>
+                        <material name="green">
+                                <color rgba="0.0 1.0 0.0 1.0"/>
+                        </material>
+                </visual>
+                <collision>
+                        <geometry>
+                                <cylinder radius="0.08" length="0.09"/>
+                        </geometry>
+                </collision>
+        </link>
+        <joint name="base_footprint_joint" type="fixed">
+                <parent link="base_link"/>
+                <child link="base_footprint"/>
+                <origin xyz="0 0 -0.3465"/>
+        </joint>
+        <joint name="left_wheel_joint" type="continuous">
+                <parent link="base_link"/>
+                <child link="left_wheel"/>
+                <origin rpy="0 0 0" xyz="0.3 0.24 -0.25"/>
+                <axis xyz="0 1 0"/>
+        </joint>
+        <joint name="right_wheel_joint" type="continuous">
+                <parent link="base_link"/>
+                <child link="right_wheel"/>
+                <origin xyz="0.3 -0.24 -0.25"/>
+                <axis xyz="0 1 0"/>
+        </joint>
+        <joint name="caster_joint" type="continuous">
+                <parent link="base_link"/>
+                <child link="caster"/>
+                <origin xyz="-0.32 0.0 -0.305"/>
+                <axis xyz="1 1 0"/>
+        </joint>
+        <joint name="laser_joint" type="fixed">
+                <parent link="base_link"/>
+                <child link="laser"/>
+                <origin xyz="0.32 0.0 0.275"/>
+                <axis xyz="0 0 1"/>
+        </joint>
+        <joint name="gps_joint" type="fixed">
+                <parent link="base_link"/>
+                <child link="gps"/>
+                <origin xyz="-0.32 0.0 0.30"/>
+                <axis xyz="0 0 1"/>
+        </joint>
+</robot>
