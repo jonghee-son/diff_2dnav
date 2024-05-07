@@ -11,7 +11,7 @@
                         </material>
                 </visual>
                 <collision>
-                        <origin rpy="0 0 0" xyz="0 0 0.35"/>
+                        <origin rpy="0 0 0" xyz="0 0 0"/>
                         <geometry>
                                 <box size="0.65 0.42 0.51"/>
                         </geometry>
@@ -117,13 +117,13 @@
         <joint name="left_wheel_joint" type="continuous">
                 <parent link="base_link"/>
                 <child link="left_wheel"/>
-                <origin rpy="0 0 0" xyz="0.3 0.24 -0.25"/>
+                <origin rpy="0 0 0" xyz="0.3 0.2435 -0.25"/>
                 <axis xyz="0 1 0"/>
         </joint>
         <joint name="right_wheel_joint" type="continuous">
                 <parent link="base_link"/>
                 <child link="right_wheel"/>
-                <origin xyz="0.3 -0.24 -0.25"/>
+                <origin xyz="0.3 -0.2435 -0.25"/>
                 <axis xyz="0 1 0"/>
         </joint>
         <joint name="caster_joint" type="continuous">
