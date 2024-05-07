@@ -117,13 +117,13 @@
         <joint name="left_wheel_joint" type="continuous">
                 <parent link="base_link"/>
                 <child link="left_wheel"/>
-                <origin rpy="0 0 0" xyz="0.3 0.2435 -0.25"/>
+                <origin xyz="0.275 0.2435 -0.25"/>
                 <axis xyz="0 1 0"/>
         </joint>
         <joint name="right_wheel_joint" type="continuous">
                 <parent link="base_link"/>
                 <child link="right_wheel"/>
-                <origin xyz="0.3 -0.2435 -0.25"/>
+                <origin xyz="0.275 -0.2435 -0.25"/>
                 <axis xyz="0 1 0"/>
         </joint>
         <joint name="caster_joint" type="continuous">
@@ -147,7 +147,7 @@
         <joint name="imu_link_joint" type="fixed">
                 <parent link="base_link"/>
                 <child link="imu_link"/>
-                <origin xyz="0.3 0.0 -0.25"/>
+                <origin xyz="0.275 0.0 -0.25"/>
                 <axis xyz="0 0 1"/>
         </joint>
 </robot>
