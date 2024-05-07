@@ -32,7 +32,7 @@ displays:
     config:
       visible: true
       collapsed: false
-      topic: ""
+      topic: /ublox_gps/fix
       color: "#00ff00"
       draw_style: lines
       position_tolerance: 0
