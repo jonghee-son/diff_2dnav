@@ -4,7 +4,7 @@
                 <visual>
                         <origin rpy="0 0 0" xyz="0 0 0"/>
                         <geometry>
-                                <box size="0.65 0.42 0.51"/>
+                                <box size="0.74 0.42 0.51"/>
                         </geometry>
                         <material name="blue">
                                 <color rgba="0.0 0.0 1.0 1.0"/>
@@ -13,7 +13,7 @@
                 <collision>
                         <origin rpy="0 0 0" xyz="0 0 0"/>
                         <geometry>
-                                <box size="0.65 0.42 0.51"/>
+                                <box size="0.74 0.42 0.51"/>
                         </geometry>
                 </collision>
         </link>
@@ -135,13 +135,13 @@
         <joint name="laser_joint" type="fixed">
                 <parent link="base_link"/>
                 <child link="laser"/>
-                <origin rpy="3.14 0 3.14" xyz="0.32 0.0 0.275"/>
+                <origin rpy="3.14 0 3.14" xyz="0.265 0.0 0.275"/>
                 <axis xyz="0 0 1"/>
         </joint>
         <joint name="gps_joint" type="fixed">
                 <parent link="base_link"/>
                 <child link="gps"/>
-                <origin xyz="-0.32 0.0 0.30"/>
+                <origin xyz="-0.255 0.0 0.30"/>
                 <axis xyz="0 0 1"/>
         </joint>
         <joint name="imu_link_joint" type="fixed">
