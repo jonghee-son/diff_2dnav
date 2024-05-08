@@ -19,9 +19,9 @@ const double initialTheta = 0.00000000001;
 const double PI = 3.141592;
 
 // Robot physical constants
-const double TICKS_PER_REVOLUTION = 16384 * 15 * 8; // Encoder resolution * gear ratio * motor poles
-const double WHEEL_RADIUS = 0.193; // Wheel radius in meters
-const double WHEEL_BASE = 0.487; // Center of left tire to center of right tire
+const double TICKS_PER_REVOLUTION = 16384 * 15 * 8;			   // Encoder resolution * gear ratio * motor poles
+const double WHEEL_RADIUS = 0.193;					   // Wheel radius in meters
+const double WHEEL_BASE = 0.487;					   // Center of left tire to center of right tire
 const double TICKS_PER_METER = TICKS_PER_REVOLUTION / (PI * WHEEL_RADIUS); // Original was 2800
 
 // Distance both wheels have traveled
@@ -34,7 +34,8 @@ bool initialPoseRecieved = true;
 using namespace std;
 
 // Get initial_2d message from either Rviz clicks or a manual pose publisher
-void set_initial_2d(const geometry_msgs::PoseStamped &rvizClick) {
+void set_initial_2d(const geometry_msgs::PoseStamped &rvizClick)
+{
 	odomOld.pose.pose.position.x = rvizClick.pose.position.x;
 	odomOld.pose.pose.position.y = rvizClick.pose.position.y;
 	odomOld.pose.pose.orientation.z = rvizClick.pose.orientation.z;
@@ -42,27 +43,32 @@ void set_initial_2d(const geometry_msgs::PoseStamped &rvizClick) {
 }
 
 // Calculate the distance the left wheel has traveled since the last cycle
-void Calc_Left(const std_msgs::Int32& leftCount) {
+void Calc_Left(const std_msgs::Int32 &leftCount)
+{
 	static int lastCountL = 0;
-	if(leftCount.data != 0 && lastCountL != 0) {
+	if (leftCount.data != 0 && lastCountL != 0)
+	{
 		int leftTicks = (leftCount.data - lastCountL);
-		distanceLeft = leftTicks/TICKS_PER_METER;
+		distanceLeft = leftTicks / TICKS_PER_METER;
 	}
 	lastCountL = leftCount.data;
 }
 
 // Calculate the distance the right wheel has traveled since the last cycle
-void Calc_Right(const std_msgs::Int32& rightCount) {
+void Calc_Right(const std_msgs::Int32 &rightCount)
+{
 	static int lastCountR = 0;
-	if(rightCount.data != 0 && lastCountR != 0) {
+	if (rightCount.data != 0 && lastCountR != 0)
+	{
 		int rightTicks = (rightCount.data - lastCountR);
-		distanceRight = rightTicks/TICKS_PER_METER;
+		distanceRight = rightTicks / TICKS_PER_METER;
 	}
 	lastCountR = rightCount.data;
 }
 
 // Publish a nav_msgs::Odometry message in quaternion format
-void publish_quat() {
+void publish_quat()
+{
 	tf2::Quaternion q;
 	q.setRPY(0, 0, odomNew.pose.pose.orientation.z);
 
@@ -84,14 +90,18 @@ void publish_quat() {
 	quatOdom.twist.twist.angular.y = odomNew.twist.twist.angular.y;
 	quatOdom.twist.twist.angular.z = odomNew.twist.twist.angular.z;
 
-	for(int i = 0; i<36; i++) {
-		if(i == 0 || i == 7 || i == 14) {
+	for (int i = 0; i < 36; i++)
+	{
+		if (i == 0 || i == 7 || i == 14)
+		{
 			quatOdom.pose.covariance[i] = .01;
 		}
-		else if (i == 21 || i == 28 || i== 35) {
+		else if (i == 21 || i == 28 || i == 35)
+		{
 			quatOdom.pose.covariance[i] += 0.1;
 		}
-		else {
+		else
+		{
 			quatOdom.pose.covariance[i] = 0;
 		}
 	}
@@ -100,49 +110,59 @@ void publish_quat() {
 }
 
 // Update odometry information
-void update_odom() {
+void update_odom()
+{
 	// Calculate the average distance
 	double cycleDistance = (distanceRight + distanceLeft) / 2;
 
 	// Calculate the number of radians the robot has turned since the last cycle
-	double cycleAngle = asin((distanceRight-distanceLeft)/WHEEL_BASE);
+	double cycleAngle = asin((distanceRight - distanceLeft) / WHEEL_BASE);
 
 	// Average angle during the last cycle
-	double avgAngle = cycleAngle/2 + odomOld.pose.pose.orientation.z;
+	double avgAngle = cycleAngle / 2 + odomOld.pose.pose.orientation.z;
 
-	if (avgAngle > PI) {
-		avgAngle -= 2*PI;
+	if (avgAngle > PI)
+	{
+		avgAngle -= 2 * PI;
 	}
-	else if (avgAngle < -PI) {
-		avgAngle += 2*PI;
+	else if (avgAngle < -PI)
+	{
+		avgAngle += 2 * PI;
 	}
-	else{}
+	else
+	{
+	}
 
 	// Calculate the new pose (x, y, and theta)
-	odomNew.pose.pose.position.x = odomOld.pose.pose.position.x + cos(avgAngle)*cycleDistance;
-	odomNew.pose.pose.position.y = odomOld.pose.pose.position.y + sin(avgAngle)*cycleDistance;
+	odomNew.pose.pose.position.x = odomOld.pose.pose.position.x + cos(avgAngle) * cycleDistance;
+	odomNew.pose.pose.position.y = odomOld.pose.pose.position.y + sin(avgAngle) * cycleDistance;
 	odomNew.pose.pose.orientation.z = cycleAngle + odomOld.pose.pose.orientation.z;
 
 	// Prevent lockup from a single bad cycle
-	if (isnan(odomNew.pose.pose.position.x) || isnan(odomNew.pose.pose.position.y) || isnan(odomNew.pose.pose.position.z)) {
+	if (isnan(odomNew.pose.pose.position.x) || isnan(odomNew.pose.pose.position.y) || isnan(odomNew.pose.pose.position.z))
+	{
 		odomNew.pose.pose.position.x = odomOld.pose.pose.position.x;
 		odomNew.pose.pose.position.y = odomOld.pose.pose.position.y;
 		odomNew.pose.pose.orientation.z = odomOld.pose.pose.orientation.z;
 	}
 
 	// Make sure theta stays in the correct range
-	if (odomNew.pose.pose.orientation.z > PI) {
+	if (odomNew.pose.pose.orientation.z > PI)
+	{
 		odomNew.pose.pose.orientation.z -= 2 * PI;
 	}
-	else if (odomNew.pose.pose.orientation.z < -PI) {
+	else if (odomNew.pose.pose.orientation.z < -PI)
+	{
 		odomNew.pose.pose.orientation.z += 2 * PI;
 	}
-	else{}
+	else
+	{
+	}
 
 	// Compute the velocity
 	odomNew.header.stamp = ros::Time::now();
-	odomNew.twist.twist.linear.x = cycleDistance/(odomNew.header.stamp.toSec() - odomOld.header.stamp.toSec());
-	odomNew.twist.twist.angular.z = cycleAngle/(odomNew.header.stamp.toSec() - odomOld.header.stamp.toSec());
+	odomNew.twist.twist.linear.x = cycleDistance / (odomNew.header.stamp.toSec() - odomOld.header.stamp.toSec());
+	odomNew.twist.twist.angular.z = cycleAngle / (odomNew.header.stamp.toSec() - odomOld.header.stamp.toSec());
 
 	// Save the pose data for the next cycle
 	odomOld.pose.pose.position.x = odomNew.pose.pose.position.x;
@@ -154,7 +174,8 @@ void update_odom() {
 	odom_data_pub.publish(odomNew);
 }
 
-int main(int argc, char **argv) {
+int main(int argc, char **argv)
+{
 	// Set the data fields of the odometry message
 	odomNew.header.frame_id = "odom";
 	odomNew.pose.pose.position.z = 0;
@@ -185,10 +206,12 @@ int main(int argc, char **argv) {
 	// Publisher of full odom message where orientation is quaternion
 	odom_data_pub_quat = node.advertise<nav_msgs::Odometry>("odom_data_quat", 100);
 
-	ros::Rate loop_rate(30); 
+	ros::Rate loop_rate(30);
 
-	while(ros::ok()) {
-		if(initialPoseRecieved) {
+	while (ros::ok())
+	{
+		if (initialPoseRecieved)
+		{
 			update_odom();
 			publish_quat();
 		}
