@@ -33,7 +33,7 @@
        true, true, true,
        false, false, true,
        false, false, false]</rosparam>
-    <!--<param name="odom1" value="/odometry/gps" />
+    <param name="odom1" value="/odometry/gps" />
     <param name="odom1_differential" value="false" />
     <param name="odom1_pose_rejection_threshold" value="5.0"/>
     <param name="odom1_twist_rejection_threshold" value="1.0"/>
@@ -43,7 +43,7 @@
        false, false, false,
        false, false, false,
        false, false, false]</rosparam>
-    <param name="imu0" value="/imu/data" />
+    <!--<param name="imu0" value="/imu/data" />
     <param name="imu0_differential" value="false" />
     <param name="imu0_relative" value="true" />
     <param name="imu0_remove_gravitational_acceleration" value="true"/>
