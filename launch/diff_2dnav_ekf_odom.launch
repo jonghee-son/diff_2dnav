@@ -2,6 +2,7 @@
 
 <launch>
   <include file="$(find diff_2dnav)/launch/laser_filter.launch"/>
+  <include file="$(find diff_2dnav)/launch/scan_matcher.launch"/>
 
   <!-- AMCL -->
   <!--<include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>-->
@@ -43,6 +44,16 @@
        false, false, false,
        false, false, false,
        false, false, false]</rosparam>-->
+    <param name="odom3" value="/odom_rf2o" />
+    <param name="odom3_differential" value="false" />
+    <param name="odom3_pose_rejection_threshold" value="5.0"/>
+    <param name="odom3_twist_rejection_threshold" value="1.0"/>
+    <rosparam param="odom3_config">
+      [true, true, false,
+       false, false, false,
+       false, false, false,
+       false, false, false,
+       false, false, false]</rosparam>
     <param name="imu0" value="/imu/data" />
     <param name="imu0_differential" value="false" />
     <param name="imu0_relative" value="true" />
@@ -88,8 +99,18 @@
        false, false, false,
        false, false, false,
        false, false, false,
+       false, false, false]</rosparam>-->
+    <param name="odom3" value="/odom_rf2o" />
+    <param name="odom3_differential" value="false" />
+    <param name="odom3_pose_rejection_threshold" value="5.0"/>
+    <param name="odom3_twist_rejection_threshold" value="1.0"/>
+    <rosparam param="odom3_config">
+      [true, true, false,
+       false, false, false,
+       false, false, false,
+       false, false, false,
        false, false, false]</rosparam>
-    <param name="imu0" value="/imu/data" />
+    <!--<param name="imu0" value="/imu/data" />
     <param name="imu0_differential" value="false" />
     <param name="imu0_relative" value="true" />
     <param name="imu0_remove_gravitational_acceleration" value="true"/>
