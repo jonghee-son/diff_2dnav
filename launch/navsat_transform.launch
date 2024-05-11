@@ -13,7 +13,7 @@
 
     <remap from="/imu/data" to="/imu/data" />
     <remap from="/gps/fix" to="/ublox_gps/fix" />
-    <remap from="/odometry/filtered" to="/odometry/filtered" />
+    <remap from="/odometry/filtered" to="/odometry/filtered/global" />
 
   </node>
 
