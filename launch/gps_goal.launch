@@ -5,7 +5,7 @@
     <param name="frame_id" value="map"/>
     <!-- INPUT TOPICS -->
     <remap from="gps_goal_pose" to="gps_goal_pose" />
-    <remap from="gps_goal_fix" to="ublox_gps/fix" />
+    <remap from="gps_goal_fix" to="gps/filtered" />
     <remap from="local_xy_origin" to="local_xy_origin" />
   </node>
 </launch>

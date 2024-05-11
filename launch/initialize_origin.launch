@@ -5,6 +5,6 @@
   <node pkg="swri_transform_util" type="initialize_origin.py" name="initialize_origin" output="screen">
     <param name="local_xy_frame" value="/map"/>
     <param name="local_xy_origin" value="$(arg origin)"/> <!-- setting "auto" here will set the origin to the first GPS fix that it recieves -->
-    <remap from="gps" to="/ublox_gps/fix"/>
+    <remap from="gps" to="/gps/filtered"/>
   </node>
 </launch>
