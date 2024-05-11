@@ -16,7 +16,7 @@
   </node>
 
   <!-- AMCL -->
-  <include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>
+  <include file="$(find diff_2dnav)/launch/amcl.launch"/>
 
   <!-- SLAM configuration -->
   <!--<include file="$(find diff_2dnav)/launch/mapping.launch"/>-->

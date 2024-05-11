@@ -4,7 +4,7 @@
   <include file="$(find diff_2dnav)/launch/laser_filter.launch"/>
 
   <!-- AMCL -->
-  <!--<include file="$(find diff_2dnav)/launch/amcl.launch.xml"/>-->
+  <!--<include file="$(find diff_2dnav)/launch/amcl.launch"/>-->
 
   <!-- Odometry configuration -->
   <!-- [x_pos   , y_pos    , z_pos,
