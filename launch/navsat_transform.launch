@@ -9,7 +9,7 @@
     <param name="yaw_offset" value="0"/>
 
     <param name="publish_filtered_gps" value="true"/>
-    <param name="broadcast_utm_transform" value="true"/>
+    <param name="broadcast_cartesian_transform" value="true"/>
 
     <remap from="/imu/data" to="/imu/data" />
     <remap from="/gps/fix" to="/ublox_gps/fix" />
