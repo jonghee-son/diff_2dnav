@@ -5,7 +5,7 @@
   <!--<include file="$(find diff_2dnav)/launch/scan_matcher.launch"/>-->
 
   <!-- AMCL -->
-  <include file="$(find diff_2dnav)/launch/amcl.launch"/>
+  <!--<include file="$(find diff_2dnav)/launch/amcl.launch"/>-->
 
   <!-- Odometry configuration -->
   <!-- [x_pos   , y_pos    , z_pos,
@@ -32,7 +32,7 @@
       [false, false, false,
        false, false, false,
        true, true, false,
-       false, false, true,
+       false, false, false,
        false, false, false]</rosparam>
     <!--<param name="odom3" value="/odom_rf2o" />
     <param name="odom3_differential" value="false" />
@@ -79,7 +79,7 @@
       [false, false, false,
        false, false, false,
        true, true, false,
-       false, false, true,
+       false, false, false,
        false, false, false]</rosparam>
     <param name="odom1" value="/odometry/gps" />
     <param name="odom1_differential" value="false" />
