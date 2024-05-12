@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <launch>
+  <include file="$(find diff_2dnav)/launch/fix_translator.launch"/>
   <include file="$(find diff_2dnav)/launch/initialize_origin.launch"/>
   <include file="$(find diff_2dnav)/launch/gps_goal.launch"/>
 </launch>

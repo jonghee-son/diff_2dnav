@@ -81,16 +81,6 @@
        true, true, false,
        false, false, false,
        false, false, false]</rosparam>
-    <param name="odom1" value="/odometry/gps" />
-    <param name="odom1_differential" value="false" />
-    <param name="odom1_pose_rejection_threshold" value="5.0"/>
-    <param name="odom1_twist_rejection_threshold" value="1.0"/>
-    <rosparam param="odom1_config">
-      [true, true, false,
-       false, false, false,
-       false, false, false,
-       false, false, false,
-       false, false, false]</rosparam>
     <!--<param name="odom3" value="/odom_rf2o" />
     <param name="odom3_differential" value="false" />
     <param name="odom3_pose_rejection_threshold" value="5.0"/>
