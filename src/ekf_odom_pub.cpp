@@ -21,7 +21,7 @@ const double PI = 3.141592;
 // Robot physical constants
 const double TICKS_PER_REVOLUTION = 16384 * 15 * 8;			   // Encoder resolution * gear ratio * motor poles
 const double WHEEL_RADIUS = 0.193;					   // Wheel radius in meters
-const double LEFT_WHEEL_RADIUS = 0.190;				   	   // Left wheel radius in meters
+const double LEFT_WHEEL_RADIUS = 0.192;				   	   // Left wheel radius in meters
 const double RIGHT_WHEEL_RADIUS = 0.193;				   // Right wheel radius in meters
 const double WHEEL_BASE = 0.487;					   // Center of left tire to center of right tire
 const double TICKS_PER_METER = TICKS_PER_REVOLUTION / (PI * WHEEL_RADIUS); // Original was 2800
