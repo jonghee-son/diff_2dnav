@@ -21,8 +21,12 @@ const double PI = 3.141592;
 // Robot physical constants
 const double TICKS_PER_REVOLUTION = 16384 * 15 * 8;			   // Encoder resolution * gear ratio * motor poles
 const double WHEEL_RADIUS = 0.193;					   // Wheel radius in meters
+const double LEFT_WHEEL_RADIUS = 0.190;				   	   // Left wheel radius in meters
+const double RIGHT_WHEEL_RADIUS = 0.193;				   // Right wheel radius in meters
 const double WHEEL_BASE = 0.487;					   // Center of left tire to center of right tire
 const double TICKS_PER_METER = TICKS_PER_REVOLUTION / (PI * WHEEL_RADIUS); // Original was 2800
+const double TICKS_PER_METER_LEFT = TICKS_PER_REVOLUTION / (PI * LEFT_WHEEL_RADIUS);
+const double TICKS_PER_METER_RIGHT = TICKS_PER_REVOLUTION / (PI * RIGHT_WHEEL_RADIUS);
 
 // Distance both wheels have traveled
 double distanceLeft = 0;
@@ -49,7 +53,7 @@ void Calc_Left(const std_msgs::Int32 &leftCount)
 	if (leftCount.data != 0 && lastCountL != 0)
 	{
 		int leftTicks = (leftCount.data - lastCountL);
-		distanceLeft = leftTicks / TICKS_PER_METER;
+		distanceLeft = leftTicks / TICKS_PER_METER_LEFT;
 	}
 	lastCountL = leftCount.data;
 }
@@ -61,7 +65,7 @@ void Calc_Right(const std_msgs::Int32 &rightCount)
 	if (rightCount.data != 0 && lastCountR != 0)
 	{
 		int rightTicks = (rightCount.data - lastCountR);
-		distanceRight = rightTicks / TICKS_PER_METER;
+		distanceRight = rightTicks / TICKS_PER_METER_RIGHT;
 	}
 	lastCountR = rightCount.data;
 }
