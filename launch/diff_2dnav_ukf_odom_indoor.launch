@@ -32,7 +32,7 @@
       [false, false, false,
        false, false, false,
        true, true, false,
-       false, false, false,
+       false, false, true,
        false, false, false]</rosparam>
     <!--<param name="odom3" value="/odom_rf2o" />
     <param name="odom3_differential" value="false" />
@@ -79,7 +79,7 @@
       [false, false, false,
        false, false, false,
        true, true, false,
-       false, false, false,
+       false, false, true,
        false, false, false]</rosparam>
     <!--<param name="odom3" value="/odom_rf2o" />
     <param name="odom3_differential" value="false" />

@@ -36,7 +36,7 @@ double distanceRight = 0;
 bool initialPoseRecieved = true;
 
 // Correction factor for misaligned wheels
-const double LEFTWHEEL_OFFSET = -0.01;					   // Offset of left wheel in meters (positive is to the forward)
+const double LEFTWHEEL_OFFSET = 0.1;					   // Offset of left wheel in meters (positive is to the forward)
 
 using namespace std;
 
