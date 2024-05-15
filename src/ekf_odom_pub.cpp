@@ -36,7 +36,7 @@ double distanceRight = 0;
 bool initialPoseRecieved = true;
 
 // Correction factor for misaligned wheels
-const double LEFTWHEEL_OFFSET = 0.03;					   // Offset of left wheel in meters (positive is to the forward)
+const double LEFTWHEEL_OFFSET = 0.0;					   // Offset of left wheel in meters (positive is to the forward)
 
 using namespace std;
 
@@ -123,8 +123,8 @@ void update_odom()
 	double cycleDistance = (distanceRight + distanceLeft) / 2;
 
 	// Calculate the number of radians the robot has turned since the last cycle
-	//double cycleAngle = asin((distanceRight - distanceLeft) / WHEEL_BASE);
-	double cycleAngle = atan(LEFTWHEEL_OFFSET / WHEEL_BASE) - atan((LEFTWHEEL_OFFSET + distanceLeft - distanceRight) / WHEEL_BASE);
+	double cycleAngle = asin((distanceRight - distanceLeft) / WHEEL_BASE);
+	//double cycleAngle = atan(LEFTWHEEL_OFFSET / WHEEL_BASE) - atan((LEFTWHEEL_OFFSET + distanceLeft - distanceRight) / WHEEL_BASE);
 
 	// Average angle during the last cycle
 	double avgAngle = cycleAngle / 2 + odomOld.pose.pose.orientation.z;
