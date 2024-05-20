@@ -2,7 +2,6 @@
 
 <launch>
   <include file="$(find diff_2dnav)/launch/laser_filter.launch"/>
-  <include file="$(find diff_2dnav)/launch/scan_matcher.launch"/>
 
   <!-- AMCL -->
   <!--<include file="$(find diff_2dnav)/launch/amcl.launch"/>-->
@@ -125,4 +124,6 @@
   <include file="$(find diff_2dnav)/launch/move_base.launch"/>
 
   <include file="$(find diff_2dnav)/launch/navsat_transform.launch"/>
+  
+  <include file="$(find diff_2dnav)/launch/scan_matcher.launch"/>
 </launch>
