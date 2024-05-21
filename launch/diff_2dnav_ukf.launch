@@ -56,5 +56,5 @@
   <!-- move_base configuration -->
   <include file="$(find diff_2dnav)/launch/move_base.launch"/>
 
-  <include file="$(find diff_2dnav)/launch/navsat_transform.launch"/>
+  <include file="$(find diff_2dnav)/launch/navsat_transform_alt.launch"/>
 </launch>
