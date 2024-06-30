@@ -15,7 +15,7 @@
   <arg name="cert"                   default = "" />
   <arg name="key"                    default = "" />
   <arg name="ca_cert"                default = "" />
-  <arg name="debug"                  default = "false" />
+  <arg name="debug"                  default = "true" />
   <arg name="rtcm_message_package"   default = "rtcm_msgs" />
 
   <!-- Set the log level to debug -->
