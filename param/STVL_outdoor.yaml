@@ -19,7 +19,7 @@ global_costmap:
         observation_sources:      rgbd1_mark rgbd1_clear
         rgbd1_mark:
           data_type: PointCloud2
-          topic: camera/depth/color/points
+          topic: /camera/depth/color/points
           marking: true
           clearing: false
           obstacle_range: 3.0          # meters
@@ -33,7 +33,7 @@ global_costmap:
           clear_after_reading: true    # default false, clear the buffer after the layer gets readings from it
         rgbd1_clear:
           data_type: PointCloud2
-          topic: camera/depth/color/points
+          topic: /camera/depth/color/points
           marking: false
           clearing: true
           max_z: 7.0                  # default 0, meters
