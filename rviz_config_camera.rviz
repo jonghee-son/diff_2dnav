@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Map3
       Splitter Ratio: 0.5
     Tree Height: 154
   - Class: rviz/Selection
@@ -106,6 +107,8 @@ Visualization Manager:
           Value: true
         right_wheel:
           Value: true
+        utm:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -148,6 +151,8 @@ Visualization Manager:
                   {}
                 right_wheel:
                   {}
+            utm:
+              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -271,7 +276,7 @@ Visualization Manager:
       Value: true
     - Alpha: 0.699999988079071
       Class: rviz/Map
-      Color Scheme: map
+      Color Scheme: costmap
       Draw Behind: false
       Enabled: true
       Name: Map
@@ -423,6 +428,16 @@ Visualization Manager:
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
+    - Alpha: 0.699999988079071
+      Class: rviz/Map
+      Color Scheme: costmap
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic: /move_base/local_costmap/costmap
+      Unreliable: false
+      Use Timestamp: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -451,7 +466,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 11.69810676574707
+      Distance: 15.46664047241211
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -467,9 +482,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7097963094711304
+      Pitch: 0.8447967171669006
       Target Frame: <Fixed Frame>
-      Yaw: 3.1535747051239014
+      Yaw: 2.958571672439575
     Saved: ~
 Window Geometry:
   Displays:
