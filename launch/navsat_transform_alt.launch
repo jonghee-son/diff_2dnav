@@ -2,11 +2,16 @@
 
 <launch>
 
+  <rosparam param="datum">[55.944904, -3.186693, 0.0, map, base_footprint]</rosparam>
+  <!--[lat, long, heading, world_frame, robot_base_frame]-->
+
   <node pkg="robot_localization" type="navsat_transform_node" name="navsat_transform_node" respawn="true">
 
     <param name="magnetic_declination_radians" value="0.15678874447043498"/>
 
     <param name="yaw_offset" value="1.5707963"/>
+
+    <param name="wait_for_datum" value="true"/>
 
     <param name="publish_filtered_gps" value="true"/>
     <param name="broadcast_cartesian_transform" value="true"/>
