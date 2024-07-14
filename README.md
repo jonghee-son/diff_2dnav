@@ -54,3 +54,13 @@ The package uses the following ROS topics:
  * ```/odometry/filtered/global``` (nav_msgs/Odometry): UKF applied fused odometry (IMU + wheel odometry + GPS) (map to odom).
  * ```/scan``` (sensor_msgs/LaserScan): Raw laser scan data from RPLIDAR S2.
  * ```/scan_filtered``` (sensor_msgs/LaserScan): filtered laser scan data from ```laser_filter``` node.
+
+## Related Packages
+[imnav_goal](https://github.com/jongwonbaek2000/imnav_goal): Package to send GPS coordinate as move_base goal.</br>
+[image_nav](https://github.com/jongwonbaek2000/image_nav): Image based path planning and visualization package for waypoint based navigation.</br>
+[ublox](https://github.com/jonghee-son/ublox): Modified version of ublox ROS driver for RTK use.</br>
+[iahrs_driver](https://github.com/jonghee-son/iahrs_driver): Modified version of iAHRS ROS driver.</br>
+[md](https://github.com/jonghee-son/md): Modified version of MDROBOT motor driver ROS driver.
+
+## Paper
+손종희, 백종원, 신윤호, 황채민, 남윤석 (2024). [위성측위시스템 경유점 기반 자율주행 모바일 배송 로봇 개발](https://jhson.dev/TP1-9.pdf). _제어로봇시스템학회 국내학술대회 논문집_, 2024 제39회 제어로봇시스템학회 학술대회, 929-930.
