@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+        <remap from="origin_gps" to="ublox_gps/fix"/>
+        <include file="$(find imnav_goal)/launch/imnav_goal.launch"/>
+</launch>
