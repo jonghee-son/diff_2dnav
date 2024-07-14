@@ -1,5 +1,7 @@
 # diff_2dnav
-Robot initialization & navigation stack meta package for 
+Robot initialization & navigation stack meta package for GNSS waypoint based autonomous mobile delivery robot.
+![작품_사진](https://github.com/user-attachments/assets/a9e52e55-2bda-4918-b7d5-76a4e4e07f41)
+![구성도](https://github.com/user-attachments/assets/f4dbab38-a2a9-44c5-a561-14a1b428b38f)
 
 ## Installation
 1. Clone the repository or download the package into your ROS workspace's ```src``` folder.
