@@ -1,5 +1,8 @@
 <?xml version="1.0"?>
 <launch>
+  <rosparam>
+  /camera/realsense2_camera/stereo_module/emitter_enabled: false
+  </rosparam>
   <arg name="serial_no"           default=""/>
   <arg name="json_file_path"      default=""/>
   <arg name="camera"              default="camera"/>
