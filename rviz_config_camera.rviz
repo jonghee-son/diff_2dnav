@@ -107,8 +107,6 @@ Visualization Manager:
           Value: true
         right_wheel:
           Value: true
-        utm:
-          Value: true
       Marker Alpha: 1
       Marker Scale: 1
       Name: TF
@@ -151,8 +149,6 @@ Visualization Manager:
                   {}
                 right_wheel:
                   {}
-            utm:
-              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -465,8 +461,8 @@ Visualization Manager:
   Value: true
   Views:
     Current:
-      Class: rviz/Orbit
-      Distance: 15.46664047241211
+      Class: rviz/ThirdPersonFollower
+      Distance: 15.735193252563477
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -477,14 +473,14 @@ Visualization Manager:
         X: 0
         Y: 0
         Z: 0
-      Focal Shape Fixed Size: true
+      Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.8447967171669006
-      Target Frame: <Fixed Frame>
-      Yaw: 2.958571672439575
+      Pitch: 0.42479661107063293
+      Target Frame: base_footprint
+      Yaw: 3.0903966426849365
     Saved: ~
 Window Geometry:
   Displays:

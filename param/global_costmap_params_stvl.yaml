@@ -5,8 +5,6 @@ global_costmap:
    publish_frequency: 0.5
    static_map: false
    rolling_window: true
-   origin_x: -100.0
-   origin_y: -100.0
    width: 200.0
    height: 200.0
    transform_tolerance: 0.5
@@ -17,5 +15,5 @@ global_costmap:
    static_layer:
       map_topic: map
    inflation_layer:
-      cost_scaling_factor: 3.0
+      cost_scaling_factor: 2.6
       inflation_radius: 0.70

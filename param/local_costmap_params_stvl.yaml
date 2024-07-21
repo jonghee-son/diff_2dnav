@@ -5,8 +5,6 @@ local_costmap:
    publish_frequency: 2.0
    static_map: false
    rolling_window: true
-   origin_x: -5.0
-   origin_y: -5.0
    width: 10.0
    height: 10.0
    transform_tolerance: 0.5
@@ -63,6 +61,6 @@ local_costmap:
       observation_sources: base_scan
       base_scan: {sensor_frame: laser, data_type: LaserScan, topic: scan_filtered, marking: true, clearing: true, min_obstacle_height: 0.2, max_obstacle_height: 1.0}
    inflation_layer:
-      cost_scaling_factor: 3.0
+      cost_scaling_factor: 2.6
       inflation_radius: 0.70
 
