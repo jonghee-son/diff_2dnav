@@ -8,14 +8,11 @@ local_costmap:
    width: 10.0
    height: 10.0
    transform_tolerance: 0.5
-   resolution: 0.10 # overwritten by static map resolution
+   resolution: 0.05 # overwritten by static map resolution
    plugins:
-      - {name: static_layer, type: "costmap_2d::StaticLayer"}
       - {name: rgbd_obstacle_layer,     type: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"}
       - {name: obstacle_layer,    type: "costmap_2d::ObstacleLayer"}
       - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
-   static_layer:
-      map_topic: /map
    rgbd_obstacle_layer:
       plugin: "spatio_temporal_voxel_layer/SpatioTemporalVoxelLayer"
       enabled:                  true
