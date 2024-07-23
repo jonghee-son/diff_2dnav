@@ -26,7 +26,7 @@
     <param name="odom0" value="/odom_data_quat" />
     <param name="odom0_differential" value="false" />
     <param name="odom0_pose_rejection_threshold" value="5.0"/>
-    <param name="odom0_twist_rejection_threshold" value="1.0"/>
+    <param name="odom0_twist_rejection_threshold" value="4.0"/>
     <rosparam param="odom0_config">
       [false, false, false,
        false, false, false,
