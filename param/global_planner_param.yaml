@@ -1,6 +1,6 @@
 GlobalPlanner:
     old_navfn_behavior: false
-    use_quatratic: true
+    use_quadratic: true
     use_dijkstra: true
     use_grid_path: false
 
