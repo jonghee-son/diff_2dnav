@@ -8,7 +8,7 @@ global_costmap:
    width: 200.0
    height: 200.0
    transform_tolerance: 0.5
-   resolution: 0.05 # overwritten by static map resolution
+   resolution: 0.10 # overwritten by static map resolution
    plugins:
       - {name: static_layer, type: "costmap_2d::StaticLayer"}
       - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
