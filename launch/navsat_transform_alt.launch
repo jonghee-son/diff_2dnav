@@ -11,7 +11,7 @@
 
     <param name="yaw_offset" value="1.5707963"/>
 
-    <param name="wait_for_datum" value="true"/>
+    <param name="wait_for_datum" value="false"/>
 
     <param name="publish_filtered_gps" value="true"/>
     <param name="broadcast_cartesian_transform" value="true"/>
