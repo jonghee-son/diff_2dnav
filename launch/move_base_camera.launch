@@ -11,6 +11,6 @@
     <rosparam file="$(find diff_2dnav)/param/move_base_params.yaml" command="load" />
     <rosparam file="$(find diff_2dnav)/param/global_planner_param.yaml" command="load" />
     <param name="base_local_planner" value="dwa_local_planner/DWAPlannerROS"/>
-    <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+    <param name="base_global_planner" value="navfn/NavfnROS"/>
   </node>
 </launch>
