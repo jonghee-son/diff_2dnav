@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find iahrs_driver)/launch/device.launch"/>
+  <include file="$(find iahrs_driver)/launch/diff_2dnav_ukf.launch"/>
+</launch>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<launch>
+  <include file="$(find iahrs_driver)/launch/device_camera.launch"/>
+  <include file="$(find iahrs_driver)/launch/diff_2dnav_ukf_camera.launch"/>
+</launch>
