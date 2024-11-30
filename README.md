@@ -63,5 +63,5 @@ The package uses the following ROS topics:
 [md](https://github.com/jonghee-son/md): Modified version of MDROBOT motor driver ROS driver.
 
 ## Paper
-손종희, 백종원, 신윤호, 황채민, 남윤석 (2024). [위성측위시스템 경유점 기반 자율주행 모바일 배송 로봇 개발](https://jhson.dev/TP1-9.pdf). _제어로봇시스템학회 국내학술대회 논문집_, 2024 제39회 제어로봇시스템학회 학술대회, 929-930.
+손종희, 백종원, 신윤호, 황채민, 남윤석 (2024). [위성측위시스템 경유점 기반 자율주행 모바일 배송 로봇 개발](https://jhson.dev/TP1-9.pdf). _제어로봇시스템학회 국내학술대회 논문집_, 2024 제39회 제어로봇시스템학회 학술대회, 929-930.</br>
 손종희, 백종원, 신윤호, 황채민 (2024). 자율주행로봇 경로 계획에서 GNSS 활용에 관한 연구. _ACK 2024(추계) 학술발표대회 논문집(제31권 제2호)_, ACK 2024(추계) 학술발표대회, 839-840.
